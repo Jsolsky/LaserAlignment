@@ -6,8 +6,8 @@ import io
 picam2 = Picamera2()
 
 # Configure the camera for a standard image capture
-config = picam2.create_preview_configuration()
-picam2.configure(config)
+# config = picam2.create_preview_configuration()
+# picam2.configure(config)
 
 # Start the camera (this initializes the sensor)
 picam2.start()
@@ -19,7 +19,7 @@ image_jpeg_data = stream.read()
 print(f"Captured image size: {len(image_jpeg_data)} bytes")
 picam2.stop()
 
-with open("saved_from_variable.jpg", "wb") as f:
+with open("gaussian_none.jpg", "wb") as f:
     f.write(image_jpeg_data)
 
-print("Image captured successfully as 'my_photo.jpg'!")
+print("Image captured successfully")
