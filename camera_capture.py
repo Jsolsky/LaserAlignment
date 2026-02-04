@@ -16,27 +16,24 @@ def get_pi_temperature():
         # Useful for when you're testing on your desktop (which won't have this file)
         return 0.0
 
-temp = get_pi_temperature()
-print("t: ", temp)
+# temp = get_pi_temperature()
+# print("t: ", temp)
+
+
+# current_temp = get_pi_temperature()
+# print(f"Core Temperature: {current_temp}°C - {i}")
 
 picam2.start()
 
 i = 1
-while i < 100:
-    current_temp = get_pi_temperature()
-    print(f"Core Temperature: {current_temp}°C - {i}")
-    
+while i <= 1000:
     image_array = picam2.capture_array()
-    # print(image_array.shape)
     image = Image.fromarray(image_array, 'RGBA')
-    # image.convert('RGB').save("image.jpg")
-    time.sleep(15)
+    image.convert('RGB').save(f"dirty_signal_stream_smudge/image{i}.jpg")
+    time.sleep(0.033)
     i+=1
 
 picam2.stop()
-
-# with open("saved_from_variable.jpg", "wb") as f:
-#     f.write(image_jpeg_data)
 
 # print(f"Captured image size: {len(image_jpeg_data)} bytes")
 
