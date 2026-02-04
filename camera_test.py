@@ -19,7 +19,7 @@ image_jpeg_data = stream.read()
 print(f"Captured image size: {len(image_jpeg_data)} bytes")
 picam2.stop()
 
-with open("gaussian_none.jpg", "wb") as f:
+with open("test.jpg", "wb") as f:
     f.write(image_jpeg_data)
 
 print("Image captured successfully")
